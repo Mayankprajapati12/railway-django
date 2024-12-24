@@ -1,0 +1,48 @@
+{
+  "Mobile_Number":4654988,
+  "userticket":{
+  "Journey_From":"bhopal jn",
+  "Journey_To":"delhi jn",
+  "Boarding_Date":"2024-12-30",
+  "Boarding_Time":"12:00",
+  "Boarding_Station":"bhopal jn",
+  "Destination_Arrival_Date":"2024-12-31",
+  "Destination_Arrival_Time":"15:56",
+  "Journey_Distance":1000,
+  "Train_Number":"12920",
+  "Train_Name":"Malwa express",
+  "Seat_Quota":"General",
+  "Coach_Class":"Sleeper",
+  "Booking_Date":"2024-12-05",
+  "Number_Of_Passengers":2,
+  "Ticket_Price":852,
+  "Ticket_Status":"CNF",
+  "Journey_Status":"Pending",
+  "passenger":[
+    {
+      "Passenger_Name":"omp",
+      "Passenger_Age":50,
+      "Passenger_Gender":"Male",
+      "passenger_seat_details":{
+        "Booking_Status":"CNF",
+        "Current_Status":"CNF",
+        "Berth_Coach":"S1",
+        "Berth_Number":10,
+        "Berth_Type":"U"
+      }
+    },
+    {
+      "Passenger_Name":"Babita",
+      "Passenger_Age":25,
+      "Passenger_Gender":"Female",
+      "passenger_seat_details":{
+        "Booking_Status":"CNF",
+        "Current_Status":"CNF",
+        "Berth_Coach":"S1",
+        "Berth_Number":12,
+        "Berth_Type":"L"
+      }
+    }
+    ]
+  }
+}

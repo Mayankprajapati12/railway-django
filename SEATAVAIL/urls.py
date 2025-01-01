@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from SEATAVAIL import views
-
+from rest_framework.routers import DefaultRouter
+router=DefaultRouter()
+router.register(r"avail",views.AvailView,basename="avail")
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('seat/',views.Seat,name='seat')
+    path('',include(router.urls)),
+    path('seat/',views.getseat,name='getseat')
 ]

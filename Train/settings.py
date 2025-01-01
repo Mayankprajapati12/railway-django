@@ -77,10 +77,21 @@ WSGI_APPLICATION = 'Train.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Train',
+        'USER': 'postgres',
+        'PASSWORD': 'mayank@post',
+        'HOST': 'localhost',
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

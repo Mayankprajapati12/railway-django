@@ -3,7 +3,6 @@ from rest_framework import viewsets
 from .models import *
 from .serializers import *
 from rest_framework.decorators import api_view
-from SEATAVAIL.views import Seat
 class UserView(viewsets.ModelViewSet):
     queryset=UserDB.objects.all()
     serializer_class=UserDBSerializer

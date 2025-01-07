@@ -12,9 +12,9 @@ class AvailView(viewsets.ModelViewSet):
     serializer_class=SeatAvailSerializer
 
 def getseat(request):
-    t=SeatAvailDB.objects.filter(jan2__contains=[7])
+    t=SeatAvailDB.objects.filter(quota="tatkal").exclude(jan2__contains=["x"]).values('train_no','seat_no','coach','seat_type','jan2')
     print("t::",t)
-    
+
 # @api_view(['GET','POST'])
 # def Seat(request,tkt):
 #     # print(tkt['userticket'])

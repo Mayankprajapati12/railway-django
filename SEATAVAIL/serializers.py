@@ -8,6 +8,5 @@ class SeatAvailSerializer(serializers.ModelSerializer):
         fields='__all__'
 
     def create(self, validated_data):
-        print(validated_data)
         sa=SeatAvailDB.objects.create(**validated_data)
         return sa 

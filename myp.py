@@ -100,3 +100,6 @@
 #     tt()
 # else:
 #     print("wait...")
+with open("Train/SEATAVAIL/models.py", "r") as d:
+    c=d.readlines()
+    print("c::",c[10])

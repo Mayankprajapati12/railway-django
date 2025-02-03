@@ -20,7 +20,7 @@ def CreateTicket(request):
             for p in passenger:
                 psd=p.pop('passenger_seat_details')
                 passenger_object=PassengerDB.objects.create(ticket_id=ticket,**p)
-                PassengerSeatDB.objects.create(passenger_id=passenger_object,**psd)
+                PassengerSeatDB.objects.create(passenger_id=passenger_object,**psd)     
             return HttpResponse("ticket created!")
         else:
             return HttpResponse("user not reg register first!")

@@ -8,5 +8,7 @@ class SeatAvailDB(models.Model):
    coach=models.CharField(max_length=50)
    seat_type=models.CharField(max_length=5)
    quota=models.CharField(max_length=50)
-   jan2=models.JSONField()
-   jan3=models.JSONField()
+   jan3=models.JSONField(null=True)
+   jan4=models.JSONField(null=True)
+   jan5=models.JSONField(null=True)
+   

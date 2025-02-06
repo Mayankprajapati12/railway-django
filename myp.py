@@ -100,6 +100,16 @@
 #     tt()
 # else:
 #     print("wait...")
-with open("Train/SEATAVAIL/models.py", "r") as d:
-    c=d.readlines()
-    print("c::",c[10])
+def updatemodel(dt):
+    with open("Train/SEATAVAIL/models.py", "r") as d:
+        c=d.readlines()
+
+    with open("Train/SEATAVAIL/models.py","w") as o:
+        for l in c:
+            if dt not in l:
+                o.write(l)
+
+    with open("Train/SEATAVAIL/models.py","a") as a:
+        a.write("jan6=models.JSONField(null=True)")
+    
+updatemodel("jan3")

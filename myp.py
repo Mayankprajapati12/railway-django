@@ -100,7 +100,29 @@
 #     tt()
 # else:
 #     print("wait...")
+# def updatemodel(dt):
+#     with open("Train/SEATAVAIL/models.py", "r") as d:
+#         c=d.readlines()
+
+#     with open("Train/SEATAVAIL/models.py","w") as o:
+#         for l in c:
+#             if dt not in l:
+#                 o.write(l)
+
+#     with open("Train/SEATAVAIL/models.py","a") as a:
+#         a.write("jan6=models.JSONField(null=True)")
+    
+# updatemodel("jan3")x  
+
+
+import schedule
+import time
+from datetime import datetime
+import django
+import os
+from django.core.management import call_command
 def updatemodel(dt):
+    print("on time !!")
     with open("Train/SEATAVAIL/models.py", "r") as d:
         c=d.readlines()
 
@@ -110,6 +132,17 @@ def updatemodel(dt):
                 o.write(l)
 
     with open("Train/SEATAVAIL/models.py","a") as a:
-        a.write("jan6=models.JSONField(null=True)")
-    
-updatemodel("jan3")
+        a.write("\n   feb10=models.JSONField(null=True)")
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE','Train.settings')
+    # settings.configure(default_settings=prj.settings)
+    django.setup()
+    call_command('makemigrations')
+    call_command('migrate')
+
+c=datetime.now()
+# print(c.time())
+schedule.every().day.at("20:30:00").do(lambda: updatemodel("feb5"))
+while True:
+    schedule.run_pending()
+    time.sleep(1)

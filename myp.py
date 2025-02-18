@@ -115,9 +115,9 @@
 # updatemodel("jan3")x  
 
 
+from datetime import datetime, timedelta
 import schedule
 import time
-from datetime import datetime
 import django
 import os
 from django.core.management import call_command
@@ -131,18 +131,20 @@ def updatemodel(dt):
             if dt not in l:
                 o.write(l)
 
+    last_date=(datetime.today().date()+timedelta(days=5)).strftime("%b%d")
+
     with open("Train/SEATAVAIL/models.py","a") as a:
-        a.write("\n   feb10=models.JSONField(null=True)")
+        a.write(f"\n   {last_date}=models.JSONField(null=True)")
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','Train.settings')
     # settings.configure(default_settings=prj.settings)
     django.setup()
-    call_command('makemigrations')
-    call_command('migrate')
+    call_command('makemigrations','SEATAVAIL','--noinput')
+    call_command('migrate','SEATAVAIL','--noinput')
 
 c=datetime.now()
-# print(c.time())
-schedule.every().day.at("20:30:00").do(lambda: updatemodel("feb5"))
+previoustwodate=(datetime.today().date()+timedelta(days=-2)).strftime("%b%d")
+schedule.every().day.at("19:46:00").do(lambda: updatemodel(previoustwodate))
 while True:
     schedule.run_pending()
     time.sleep(1)

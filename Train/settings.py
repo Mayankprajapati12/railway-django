@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'django.contrib.staticfiles',
     'TRAINS',
     'USER',
     'SEATAVAIL',
@@ -62,7 +61,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messn 0000a ges',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -77,7 +76,7 @@ WSGI_APPLICATION = 'Train.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Train',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'mayank@post',
         'HOST': 'localhost',

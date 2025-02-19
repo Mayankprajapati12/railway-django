@@ -137,14 +137,12 @@ def updatemodel(dt):
         a.write(f"\n   {last_date}=models.JSONField(null=True)")
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE','Train.settings')
-    # settings.configure(default_settings=prj.settings)
     django.setup()
     call_command('makemigrations','SEATAVAIL','--noinput')
     call_command('migrate','SEATAVAIL','--noinput')
 
-c=datetime.now()
-previoustwodate=(datetime.today().date()+timedelta(days=-2)).strftime("%b%d")
-schedule.every().day.at("19:46:00").do(lambda: updatemodel(previoustwodate))
+previousthreedate=(datetime.today().date()+timedelta(days=-3)).strftime("%b%d")
+schedule.every().day.at("14:46:00").do(lambda: updatemodel(previousthreedate))
 while True:
     schedule.run_pending()
     time.sleep(1)

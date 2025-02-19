@@ -7,7 +7,7 @@ class TrainData(models.Model):
     stationTo=models.CharField(max_length=30)
     total_number_of_coaches=models.IntegerField()
     total_seats_train=models.IntegerField()
-    runningDays=models.JSONField(default=True)
+    runningDays=models.JSONField()
     
 class TrainStations(models.Model):
     train_no=models.ForeignKey(TrainData,to_field='trainNumber',on_delete=models.CASCADE,related_name="stations")
